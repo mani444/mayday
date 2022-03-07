@@ -1,0 +1,15 @@
+.Topbox1 {
+  border: 1px solid #35515D;
+  margin: auto;
+  width: 60%;
+  background-color: #113446;
+  opacity: 0.97;
+  color: aliceblue;
+  text-align: left;
+  padding: 0px 0 10px 30px;
+}
+
+.Topbox1 .h4 {
+  color: yellow;
+}
+/*# sourceMappingURL=variables.css.map */

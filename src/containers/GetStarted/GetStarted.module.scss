@@ -1,0 +1,43 @@
+@import '../../styles/variables/variables.sass';
+.Topbox {
+  border:  1px solid #35515D;
+  margin: auto;
+  @media (min-width: 1100px){
+    width: 800px;
+  }
+  
+  @media (min-width: 251px) and (max-width: 1099px){
+    width: 70%;
+  }
+  
+  @media (max-width: 250px){
+    // width: 70%;
+    display: none;
+  }
+  background-color: $bgColor;
+  opacity: 0.97;
+  color: aliceblue;
+  text-align: left;
+  padding: 0px 20px 10px 20px;
+
+}
+  
+.Rules {
+    width: 88%;
+    margin: 25px auto;
+
+    & > label {
+      margin-left: 30px;
+      line-height: 1.5;
+    }
+
+    & > div  {
+        border:  2px solid #fff;
+        position: absolute;
+        width: 17px;
+        height: 17px;
+        display: inline-block;
+        cursor: pointer;
+      }
+      
+  }

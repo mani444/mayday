@@ -1,0 +1,22 @@
+.InputTeamName {
+  text-align: left;
+  padding-left: 20px;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  border-radius: 20px;
+  height: 30px;
+  width: 200px;
+}
+
+.Topbox1 {
+  border: 1px solid #35515D;
+  margin: auto;
+  width: 60%;
+  background-color: #113446;
+  opacity: 0.97;
+  color: aliceblue;
+  text-align: left;
+  padding: 0px 0 10px 30px;
+}
+/*# sourceMappingURL=TeamName.module.css.map */
