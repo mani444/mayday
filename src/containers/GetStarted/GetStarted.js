@@ -39,15 +39,15 @@ const Getstarted = () => {
     console.log("checkboxes.current[index]", checkboxes.current[index]);
   };
 
-  const checkRefEnable = (check1) => {
-    console.log("val ", check1);
+  // const checkRefEnable = (check1) => {
+  //   console.log("val ", check1);
 
-    for (let i = 0; i < check1.length; i++) {
-      if (!check1[i]) return false;
-    }
+  //   for (let i = 0; i < check1.length; i++) {
+  //     if (!check1[i]) return false;
+  //   }
 
-    return true;
-  };
+  //   return true;
+  // };
 
   const checkEnable = (check1) => {
     // console.log("val ", check1);
@@ -120,9 +120,9 @@ const Getstarted = () => {
         />
         <Button
           classes={
-            // useMemo(() => checkEnable(check), [check])
-            checkRefEnable(checkboxes.current)
-              ? "StartButtons startbuttonactive"
+            useMemo(() => checkEnable(check), [check])
+              ? // checkRefEnable(checkboxes.current)
+                "StartButtons startbuttonactive"
               : "StartButtons startbutton"
           }
           icon={null}
