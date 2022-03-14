@@ -1,59 +1,37 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowLeft, faCheck } from "@fortawesome/free-solid-svg-icons";
-import { useState, useMemo, useRef } from "react";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import { useState, useMemo } from "react";
 import styles from "./GetStarted.module.scss";
 
 import Button from "../../components/UI/Button/Button";
-// const kvArray = [
-//   { key: 1, value: 10 },
-//   { key: 2, value: 20 },
-//   { key: 3, value: 30 },
-// ];
-
-// const strings = ["10", "10", "10"];
-// const numbers = strings.map((str) => {
-//   return parseInt(str);
-// });
-
-// console.log(numbers);
-// const reformattedArray = kvArray.map((key) => {
-//   console.log(key.key);
-//   return key.value;
-// });
-
-// console.log("reformattedArray " + reformattedArray);
-
+import Rules from "../../components/Rules/Rules";
 const Getstarted = () => {
+  const rules = [
+    {
+      isChecked: false,
+      rule: "All players in my team are logged in and ready to start",
+    },
+    {
+      isChecked: false,
+      rule: "All players in my team are on the same video call or are physically together",
+    },
+    {
+      isChecked: false,
+      rule: "I understand that pressing the Start Game button starts the game for everyone",
+    },
+  ];
   const back = <FontAwesomeIcon icon={faArrowLeft} />;
-  const checkbox = <FontAwesomeIcon icon={faCheck} color="#00ff00" />;
-  const [check, setChecked] = useState([false, false, false]);
-  const checkboxes = useRef([false, false, false]);
+  const [checker, setCheckered] = useState(rules);
 
   const handleChange = (index) => {
-    const arr = [...check];
-    arr[index] = !arr[index];
-    setChecked(arr);
+    const arr1 = [...checker];
+    arr1[index].isChecked = !arr1[index].isChecked;
+    setCheckered(arr1);
   };
-  const handleRefChange = (index) => {
-    checkboxes.current[index] = !checkboxes.current[index];
-    console.log("checkboxes.current[index]", checkboxes.current[index]);
-  };
-
-  // const checkRefEnable = (check1) => {
-  //   console.log("val ", check1);
-
-  //   for (let i = 0; i < check1.length; i++) {
-  //     if (!check1[i]) return false;
-  //   }
-
-  //   return true;
-  // };
 
   const checkEnable = (check1) => {
-    // console.log("val ", check1);
-
     for (let i = 0; i < check1.length; i++) {
-      if (!check1[i]) return false;
+      if (!check1[i].isChecked) return false;
     }
 
     return true;
@@ -72,46 +50,8 @@ const Getstarted = () => {
         When all players are ready, any player can check all the checkboxes and
         press the Start Game button. This will start the game for everyone.
       </p>
-      <div className={styles.Rules}>
-        <div
-          onClick={() => {
-            handleChange(0);
-            handleRefChange(0);
-          }}
-        >
-          {check[0] ? <div> {checkbox}</div> : null}
-        </div>
-        <label>All players in my team are logged in and ready to start</label>
-        <br />
-        <br />
-        <div
-          onClick={() => {
-            handleChange(1);
-            handleRefChange(1);
-          }}
-        >
-          {check[1] ? <div> {checkbox}</div> : null}
-        </div>
-        <label>
-          All players in my team are on the same video call or are physically
-          together
-        </label>
-        <br />
-        <br />
-        <div
-          onClick={() => {
-            handleChange(2);
-            handleRefChange(2);
-          }}
-        >
-          {check[2] ? <div> {checkbox}</div> : null}
-        </div>
-        <label>
-          I understand that pressing the Start Game button starts the game for
-          everyone
-        </label>
-      </div>
-      <div></div>
+      <Rules rules={checker} handleClick={handleChange} />
+
       <div className="StartArea">
         <Button
           classes="StartButtons backbutton"
@@ -120,7 +60,7 @@ const Getstarted = () => {
         />
         <Button
           classes={
-            useMemo(() => checkEnable(check), [check])
+            useMemo(() => checkEnable(checker), [checker])
               ? // checkRefEnable(checkboxes.current)
                 "StartButtons startbuttonactive"
               : "StartButtons startbutton"

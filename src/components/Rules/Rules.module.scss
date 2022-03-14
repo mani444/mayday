@@ -1,0 +1,19 @@
+.Rules {
+    width: 88%;
+    margin: 12px auto;
+
+    & > label {
+      margin-left: 30px;
+      line-height: 1.5;
+    }
+
+    & > div  {
+        border:  2px solid #fff;
+        position: absolute;
+        width: 17px;
+        height: 17px;
+        display: inline-block;
+        cursor: pointer;
+      }
+      
+  }
