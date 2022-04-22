@@ -1,15 +1,15 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
-import "../../../containers/App.css";
+// import styles from "./Checkbox.module.scss";
 
-const Checkbox = (props) => {
+const Checkbox = ({ handleClick, ischecked }) => {
   const checkboxicon = <FontAwesomeIcon icon={faCheck} color="#00ff00" />;
 
   return (
-    <div onClick={props.handleClick}>
+    <div onClick={handleClick}>
       {/* <div> */}
-      {props.ischecked ? <div> {checkboxicon}</div> : null}
+      {ischecked ? <div> {checkboxicon}</div> : null}
     </div>
   );
 };

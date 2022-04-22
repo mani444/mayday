@@ -1,0 +1,18 @@
+$bgColor: #113446;
+
+
+
+@mixin Topbox{
+    border:  1px solid #35515D;
+    margin: auto;
+    opacity: 0.97;
+    color: aliceblue;
+    text-align: center;
+    & > p {
+        text-align: left;
+        font-size: small;
+    }
+    @media (max-width: 250px){
+      display: none;
+    }
+  }

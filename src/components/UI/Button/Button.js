@@ -1,16 +1,24 @@
 import React from "react";
 
-import "../../../containers/App.css";
+import styles from "./Button.module.scss";
 
-const button = ({ icon, text, classes }) => {
+const Button = ({ icon, text, classes, type, onClick }) => {
+  // let link = null;
+  // myroute ? (link = myroute) : (link = {});
+
+  const reducer = (acc, curr) => `${acc} ${styles[curr]}`;
+  const className = classes.split(" ").reduce(reducer, "");
+
   let inputElement = (
-    <button className={classes}>
-      {" "}
+    <button className={className} type={type} onClick={onClick}>
       {icon} {text}
     </button>
+    // <Link to={link} className={className}>
+    //   {icon} {text}
+    // </Link>
   );
 
   return inputElement;
 };
 
-export default button;
+export default Button;

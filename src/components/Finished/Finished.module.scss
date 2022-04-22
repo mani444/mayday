@@ -1,0 +1,45 @@
+@import '../../styles/variables/variables.scss';
+
+
+
+.Topbox1 {
+  @include Topbox;
+  @media (min-width: 1100px){
+    width: 800px;
+  }
+  @media (min-width: 251px) and (max-width: 1099px){
+    width: 70%;
+  }
+  background-color: $bgColor;
+  padding: 0px 20px 10px 20px;
+}
+
+
+.Menu {
+    display: flex;
+   flex-flow: row;
+   justify-content:space-between;
+   align-items: center;
+   @media (max-width: 650px){
+    flex-flow: column wrap;
+    margin: 10px
+   }
+  }
+  
+ 
+.Info{
+    display: flex;
+    @media (max-width: 650px){
+        flex-flow: column wrap;
+        margin: 10px
+       }
+}
+.StartArea {
+    text-align: center;
+    margin: 10px;
+    align-items: center;
+    display: flex;
+    flex-flow: column wrap;
+  
+  }
+  

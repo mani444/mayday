@@ -1,5 +1,5 @@
 import Input from "../UI/Input/Input";
-import "../../styles/variables/variables.sass";
+import "../../styles/variables/variables.scss";
 
 import styles from "./TeamName.module.scss";
 const teamname = () => {
@@ -15,7 +15,7 @@ const teamname = () => {
         start the game, the team name can no longer be changed.
       </p>
       <Input
-        classes={styles.InputTeamName}
+        classes="InputTeamName"
         type="text"
         placeholder="Enter Your Team Name"
       />{" "}

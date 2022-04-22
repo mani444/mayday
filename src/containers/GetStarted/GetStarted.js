@@ -1,11 +1,20 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
-import { useState, useMemo } from "react";
+import { useContext, useState, useMemo } from "react";
+import {
+  // Link,
+  useNavigate,
+} from "react-router-dom";
+
 import styles from "./GetStarted.module.scss";
 
 import Button from "../../components/UI/Button/Button";
 import Rules from "../../components/Rules/Rules";
+// import { useAuthContext } from "../../context/Auth/AuthContainer";
+import { AuthContext } from "../../context/Auth/AuthContext";
 const Getstarted = () => {
+  const authContext = useContext(AuthContext);
+
   const rules = [
     {
       isChecked: false,
@@ -22,11 +31,20 @@ const Getstarted = () => {
   ];
   const back = <FontAwesomeIcon icon={faArrowLeft} />;
   const [checker, setCheckered] = useState(rules);
-
+  let navigate = useNavigate();
   const handleChange = (index) => {
+    authContext.authenticateUser();
+    // console.log("authContext.isLogin", authContext.checkUser());
+
     const arr1 = [...checker];
     arr1[index].isChecked = !arr1[index].isChecked;
     setCheckered(arr1);
+  };
+
+  const checkLogin = (myroute) => {
+    console.log("authContext.isLogin", authContext.isLogin);
+    let path = myroute;
+    authContext.isLogin && navigate(path);
   };
 
   const checkEnable = (check1) => {
@@ -50,13 +68,14 @@ const Getstarted = () => {
         When all players are ready, any player can check all the checkboxes and
         press the Start Game button. This will start the game for everyone.
       </p>
-      <Rules rules={checker} handleClick={handleChange} />
+      <Rules key={rules[0]} rules={checker} handleClick={handleChange} />
 
-      <div className="StartArea">
+      <div className={styles.StartArea}>
         <Button
           classes="StartButtons backbutton"
           icon={back}
           text="&nbsp; BACK"
+          onClick={() => checkLogin("/finish")}
         />
         <Button
           classes={
@@ -67,6 +86,7 @@ const Getstarted = () => {
           }
           icon={null}
           text="START GAME"
+          onClick={() => checkLogin("/finish")}
         />
       </div>
     </div>

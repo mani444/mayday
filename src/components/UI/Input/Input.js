@@ -1,13 +1,16 @@
 import React from "react";
 
-import "../../../containers/App.css";
+import styles from "./Input.module.scss";
 
-const input = (props) => {
+const input = ({ classes, type, placeholder, onChange }) => {
+  // console.log("classes", classes, styles[`${classes}`]);
   let inputElement = (
     <input
-      className={props.classes}
-      type={props.type}
-      placeholder={props.placeholder}
+      className={styles[`${classes}`]}
+      type={type}
+      placeholder={placeholder}
+      name="name"
+      onInput={(e) => onChange(e)}
     />
   );
 

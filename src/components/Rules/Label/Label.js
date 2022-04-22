@@ -1,8 +1,7 @@
 import React from "react";
-import "../../../containers/App.css";
 
-const Label = (props) => {
-  return <label>{props.text}</label>;
+const Label = ({ text }) => {
+  return <label>{text}</label>;
 };
 
 export default Label;
