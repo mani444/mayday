@@ -20,9 +20,12 @@ const Login = () => {
     // console.log(event.target.name);
     setCode({ ...code, name: event.target.value });
   };
-
+  console.log(process.env.REACT_APP_ABC);
+  const axiosInstance = axios.create({
+    baseURL: process.env.REACT_APP_ABC || "http://localhost:4000",
+  });
   const checkLogin = () => {
-    axios.post("http://localhost:3001/Login", code).then((res) => {
+    axiosInstance.post("/Login", code).then((res) => {
       // console.log(res.data);
       if (res.data.user) {
         console.log(res.data.message, res.data.user);
